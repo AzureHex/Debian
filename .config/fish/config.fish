@@ -1,5 +1,6 @@
-# fish
-set -U fish_greeting ""
+#if status is-interactive
+#    pkg init fish | source
+#end
 
 # Starship Prompt
 function starship_transient_prompt_func
@@ -16,6 +17,8 @@ enable_transience
 
 atuin init fish | source
 
+#oh-my-posh init fish --config ~/.config/ohmyposh/p10k.toml | source
+
 # XDG Directories
 set -xg XDG_CONFIG_HOME $HOME/.config
 set -xg XDG_CACHE_HOME $HOME/.cache
@@ -31,9 +34,12 @@ alias lta4="eza -lTag --git-ignore --level=4 --icons"
 alias tmux='tmux -f ~/.tmux.conf'
 alias branch='git branch --sort=-committerdate | fzf --header "Checkout Recent Branch" --preview "git diff --color=always {1} | delta" --pointer="" | xargs git checkout'
 alias commits='~/.scripts/git-commits.sh'
-alias bonsai='cbonsai --seed 119 --live'
 
-# Homebrew
+alias clock='tty-clock -sbc'
+alias bonsai='cbonsai --seed 119 --live'
+alias rain='~/.local/bin/unimatrix'
+alias doom='~/.scripts/color-scripts/doom'
+
 set -x HOMEBREW_NO_ENV_HINTS 1
 
 if test -d /home/linuxbrew/.linuxbrew
@@ -87,5 +93,19 @@ function nvims
     nvim $argv
 end
 
-# Zoxide
+# zoxide
 zoxide init fish | source
+
+# backups
+function backup --argument filename
+    cp $filename $filename.bak
+end
+
+function fish_greeting
+    if type -q colorscript
+        colorscript random
+    end
+end
+
+set -U fish_greeting ""
+
