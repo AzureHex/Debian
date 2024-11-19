@@ -34,7 +34,7 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin 
 
 ```sh
 # Homebrew Formulae
-brew install autin fish nushell starship fastfetch neovim yazi unzip lsd bat duf tldr tree glances speedtest-cli btop tmux ffmpeg mailsy
+brew install autin fish nushell starship fastfetch neovim yazi unzip lsd bat duf tldr tree tty-clock glances speedtest-cli btop tmux ffmpeg mailsy
 
 # neovims
 git clone --depth 1 https://github.com/AstroNvim/template ~/.config/AstroNvim
