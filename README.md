@@ -44,6 +44,7 @@ tldr -u
 
 # yazi plugin
 git clone https://gitee.com/DreamMaoMao/searchjump.yazi.git ~/.config/yazi/plugins/searchjump.yazi
+```
 
 ```sh
 # Install fisher | fish plugins manager
