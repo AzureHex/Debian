@@ -1,6 +1,9 @@
-#if status is-interactive
-#    pkg init fish | source
-#end
+# XDG Directories
+set -xg XDG_CONFIG_HOME $HOME/.config
+set -xg XDG_CACHE_HOME $HOME/.cache
+set -xg XDG_DATA_HOME $HOME/.local/share
+set -xg XDG_STATE_HOME $HOME/.local/state
+set -xg XDG_BIN_HOME $HOME/.local/bin
 
 # Starship Prompt
 function starship_transient_prompt_func
@@ -19,31 +22,23 @@ atuin init fish | source
 
 #oh-my-posh init fish --config ~/.config/ohmyposh/p10k.toml | source
 
-# XDG Directories
-set -xg XDG_CONFIG_HOME $HOME/.config
-set -xg XDG_CACHE_HOME $HOME/.cache
-set -xg XDG_DATA_HOME $HOME/.local/share
-set -xg XDG_STATE_HOME $HOME/.local/state
-set -xg XDG_BIN_HOME $HOME/.local/bin
-
 # aliasis
+alias cd=z
 alias la='eza -a'
 alias ls=eza
 alias tree='eza -a -T --git-ignore'
 alias lta4="eza -lTag --git-ignore --level=4 --icons"
 alias tmux='tmux -f ~/.tmux.conf'
 alias branch='git branch --sort=-committerdate | fzf --header "Checkout Recent Branch" --preview "git diff --color=always {1} | delta" --pointer="" | xargs git checkout'
-alias commits='~/.scripts/git-commits.sh'
-
+alias commits='~/.local/bin/git-commits.sh'
 alias clock='tty-clock -sbc'
 alias bonsai='cbonsai --seed 119 --live'
 alias rain='~/.local/bin/unimatrix'
-alias doom='~/.scripts/color-scripts/doom'
+alias doom='~/.local/bin/doom'
 
 set -x HOMEBREW_NO_ENV_HINTS 1
 
 if test -d /home/linuxbrew/.linuxbrew
-      # Homebrew is installed on Linux
 
       set -gx HOMEBREW_PREFIX "/home/linuxbrew/.linuxbrew"
       set -gx HOMEBREW_CELLAR "/home/linuxbrew/.linuxbrew/Cellar"
@@ -53,16 +48,15 @@ if test -d /home/linuxbrew/.linuxbrew
       set -gx MANPATH "/home/linuxbrew/.linuxbrew/share/man" $MANPATH
       set -q INFOPATH; or set INFOPATH ''
       set -gx INFOPATH "/home/linuxbrew/.linuxbrew/share/info" $INFOPATH
-
-      # Homebrew asked for this in order to `brew upgrade`
       set -gx HOMEBREW_GITHUB_API_TOKEN {api token goes here, don't remember where that's created}
   else if test -d /opt/homebrew
-      # Homebrew is installed on MacOS
-
       /opt/homebrew/bin/brew shellenv | source
 end
 
-# bat themes
+# zoxide
+zoxide init fish | source
+
+# bat
 set -gx BAT_THEME "base16-256" # base16-256, Dracula
 
 # FZF
@@ -79,33 +73,30 @@ set -xg fzf_fd_opts --hidden --color=always
 set -xg _ZO_FZF_OPTS $FZF_DEFAULT_OPTS '--preview "{$fzf_preview_dir_cmd} {2}"'
 
 # nvims
-function nvims
-    set items (find $HOME/.config -maxdepth 2 -name "init.lua" -type f -execdir sh -c 'pwd | xargs basename' \;)
-    set selected (printf "%s\n" $items | fzf --prompt='   Neovim Configs ' --preview-window 'right:border-left:50%:<40(right:border-left:50%:hidden)' --preview 'lsd -l -A --tree --depth=1 --color=always --blocks=size,name ~/.config/{} | head -200')
-
-    if test -z "$selected"
-        return 0
-    else if test "$selected" = "nvim"
-        set selected ""
-    end
-
-    set NVIM_APPNAME $selected
-    nvim $argv
-end
-
-# zoxide
-zoxide init fish | source
+#function neovims
+#    set items (find $HOME/.config -maxdepth 2 -name "init.lua" -type f -execdir sh -c 'pwd | xargs basename' \;)
+#    set selected (printf "%s\n" $items | fzf --prompt='   Neovim Configs ' --preview-window 'right:border-left:50%:<40(right:border-left:50%:hidden)' --preview 'lsd -l -A --tree --depth=1 --color=always --blocks=size,name ~/.config/{} | head -200')
+#
+#    if test -z "$selected"
+#        return 0
+#    else if test "$selected" = "nvim"
+#        set selected ""
+#    end
+#
+#    set NVIM_APPNAME $selected
+#    nvim $argv
+#end
 
 # backups
 function backup --argument filename
     cp $filename $filename.bak
 end
 
-function fish_greeting
-    if type -q colorscript
-        colorscript random
-    end
-end
+#function fish_greeting
+#    if type -q colorscript
+#        colorscript random
+#    end
+#end
 
-set -U fish_greeting ""
+#set -U fish_greeting ""
 
