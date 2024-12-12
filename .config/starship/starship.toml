@@ -1,5 +1,5 @@
 format = """
-$os \
+$os\
 $directory\
 $git_branch\
 $git_status\
