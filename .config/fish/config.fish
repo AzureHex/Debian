@@ -36,6 +36,7 @@ alias bonsai='cbonsai --seed 119 --live'
 alias unimatrix='~/.local/bin/unimatrix'
 alias rain="unimatrix -n -s 90 -l 'o'"
 alias doom='~/.local/bin/doom'
+alias logout='exit'
 
 set -x HOMEBREW_NO_ENV_HINTS 1
 
