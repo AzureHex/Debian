@@ -23,8 +23,7 @@ enable_transience
 atuin init fish | source
 
 # backups
-function S "-L/opt/homebrew/opt/curl/lib"
-  set -gx CPPFLAGS "-I/opt/homebrew/opt/curl/include"backup --argument filename
+function backup --argument filename
     cp $filename $filename.bak
 end
 
@@ -33,7 +32,8 @@ set -gx BAT_THEME "base16-256" # base16-256, Dracula
 
 # curl
 fish_add_path /opt/homebrew/opt/curl/bin
-  set -gx LDFLAG
+  set -gx LDFLAGS "-L/opt/homebrew/opt/curl/lib"
+  set -gx CPPFLAGS "-I/opt/homebrew/opt/curl/include"
 
 # aliasis
 alias cd=z
