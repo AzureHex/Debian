@@ -1,3 +1,4 @@
+ya pack -a yazi-rs/flavors:catppuccin-macchiato
 ya pack -a yazi-rs/plugins:hide-preview
 ya pack -a yazi-rs/plugins:smart-filter
 ya pack -a yazi-rs/plugins:full-border
