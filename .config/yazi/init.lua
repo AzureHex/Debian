@@ -36,10 +36,6 @@ require("zoxide"):setup({
     update_db = true,
 })
 
-require("session"):setup({
-    sync_yanked = true,
-})
-
 require("searchjump"):setup({
     unmatch_fg = catppuccin_palette.overlay0,
     match_str_fg = catppuccin_palette.peach,
@@ -77,9 +73,51 @@ require("yatline"):setup({
     permissions_x_fg = catppuccin_palette.sky,
     permissions_s_fg = catppuccin_palette.lavender,
 
-    selected = { icon = "󰻭", fg = catppuccin_palette.yellow },
+    selected = { icon = "󰻭lse, name = "hovered_file_extension", params = { true } },
+                { type = "coloreds", custom = false, name = "permissions" },
+            },
+        },
+    },
+})
+
+require("yatline-githead"):setup({
+    show_branch = true,
+    branch_prefix = "",
+    branch_symbol = "",
+    branch_borders = "",
+
+    commit_symbol = " ",
+
+    show_stashes = true,
+    stashes_symbol = " ",
+
+    show_state = true,
+    show_state_prefix = true,
+    state_symbol = "󱅉",
+
+    show_staged = true,
+    staged_symbol = " ",
+
+    show_unstaged = true,
+    unstaged_symbol = " ",
+
+    show_untracked = true,
+    untracked_symbol = " ",
+
+    prefix_color = catppuccin_palette.pink,
+    branch_color = catppuccin_palette.pink,
+    commit_color = catppuccin_palette.mauve,
+    stashes_color = catppuccin_palette.teal,
+    state_color = catppuccin_palette.lavender,
+    staged_color = catppuccin_palette.green,
+    unstaged_color = catppuccin_palette.yellow,
+    untracked_color = catppuccin_palette.pink,
+})
+
+-- require("git"):setup()
+require("git"):setup()", fg = catppuccin_palette.yellow },
     copied = { icon = "", fg = catppuccin_palette.green },
-    cut = { icon = "", fg = catppuccin_palette.red },
+    cut = { icon = "", fg = catppuccin_palette.red},
 
     total = { icon = "", fg = catppuccin_palette.yellow },
     succ = { icon = "", fg = catppuccin_palette.green },
@@ -139,45 +177,4 @@ require("yatline"):setup({
                 { type = "string", custom = false, name = "cursor_percentage" },
             },
             section_c = {
-                { type = "string",   custom = false, name = "hovered_file_extension", params = { true } },
-                { type = "coloreds", custom = false, name = "permissions" },
-            },
-        },
-    },
-})
-
-require("yatline-githead"):setup({
-    show_branch = true,
-    branch_prefix = "",
-    branch_symbol = "",
-    branch_borders = "",
-
-    commit_symbol = " ",
-
-    show_stashes = true,
-    stashes_symbol = " ",
-
-    show_state = true,
-    show_state_prefix = true,
-    state_symbol = "󱅉",
-
-    show_staged = true,
-    staged_symbol = " ",
-
-    show_unstaged = true,
-    unstaged_symbol = " ",
-
-    show_untracked = true,
-    untracked_symbol = " ",
-
-    prefix_color = catppuccin_palette.pink,
-    branch_color = catppuccin_palette.pink,
-    commit_color = catppuccin_palette.mauve,
-    stashes_color = catppuccin_palette.teal,
-    state_color = catppuccin_palette.lavender,
-    staged_color = catppuccin_palette.green,
-    unstaged_color = catppuccin_palette.yellow,
-    untracked_color = catppuccin_palette.pink,
-})
-
-require("git"):setup()
+                { type = "string",   custom = fa
