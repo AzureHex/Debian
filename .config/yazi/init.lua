@@ -1,4 +1,4 @@
-catppuccin_palette = {
+local catppuccin_palette = {
     rosewater = "#f4dbd6",
     flamingo = "#f0c6c6",
     pink = "#f5bde6",
@@ -165,6 +165,7 @@ require("yatline-githead"):setup({
 
     show_untracked = true,
     untracked_symbol = " ",
+
     prefix_color = catppuccin_palette.pink,
     branch_color = catppuccin_palette.pink,
     commit_color = catppuccin_palette.mauve,
@@ -175,3 +176,5 @@ require("yatline-githead"):setup({
     untracked_color = catppuccin_palette.pink,
 })
 
+-- require("git"):setup()
+require("git"):setup()
