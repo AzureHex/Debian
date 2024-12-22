@@ -115,11 +115,3 @@ export EDITOR=nvim
 # zoxide
 zoxide init fish | source
 
-#function fish_greeting
-#    if type -q colorscript
-#        colorscript random
-#    end
-#end
-
-#set -U fish_greeting ""
-
