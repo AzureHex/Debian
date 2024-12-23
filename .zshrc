@@ -133,4 +133,4 @@ alias unimatrix='~/.local/bin/unimatrix'
 alias rain="unimatrix -n -c yellow -s 90 -l 'o'"
 alias doom='~/.local/bin/doom'
 alias weather='curl "wttr.in/Agartala?F"'
-
+alias logout=exit
