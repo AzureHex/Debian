@@ -35,6 +35,9 @@ fish_add_path /opt/homebrew/opt/curl/bin
   set -gx LDFLAGS "-L/opt/homebrew/opt/curl/lib"
   set -gx CPPFLAGS "-I/opt/homebrew/opt/curl/include"
 
+# editor
+export EDITOR=nvim
+
 # aliasis
 alias cd=z
 alias la='eza -a --icons'
@@ -51,6 +54,7 @@ alias bonsai='cbonsai --seed 119 --live'
 alias unimatrix='~/.local/bin/unimatrix'
 alias rain="unimatrix -n -s 90 -l 'o'"
 alias doom='~/.local/bin/doom'
+alias weather='curl "wttr.in/Agartala?F"'
 alias logout=exit
 
 # homebrew
@@ -93,9 +97,6 @@ function y
 	end
 	rm -f -- "$tmp"
 end
-
-# editor
-export EDITOR=nvim
 
 # nvims
 #function neovims
