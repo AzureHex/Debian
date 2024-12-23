@@ -117,8 +117,6 @@ function y() {
 }
 
 # aliasis
-alias cd=z
-alias ci='zi'
 alias la='eza -a --icons'
 alias ls='eza --icons'
 alias ll='eza -a -l --icons'
