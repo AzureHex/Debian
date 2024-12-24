@@ -16,10 +16,6 @@ function starship_transient_rprompt_func
   starship module time
 end
 
-export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
-starship init fish | source
-enable_transience
-
 atuin init fish | source
 
 # backups
@@ -34,9 +30,6 @@ set -gx BAT_THEME "base16-256" # base16-256, Dracula
 fish_add_path /opt/homebrew/opt/curl/bin
   set -gx LDFLAGS "-L/opt/homebrew/opt/curl/lib"
   set -gx CPPFLAGS "-I/opt/homebrew/opt/curl/include"
-
-# editor
-export EDITOR=nvim
 
 # aliasis
 alias cd=z
@@ -88,6 +81,10 @@ set -xg fzf_preview_dir_cmd eza --long --header --icons --all --color=always --g
 set -xg fzf_fd_opts --hidden --color=always
 set -xg _ZO_FZF_OPTS $FZF_DEFAULT_OPTS '--preview "{$fzf_preview_dir_cmd} {2}"'
 
+export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
+starship init fish | source
+enable_transience
+
 # yazi
 function y
 	set tmp (mktemp -t "yazi-cwd.XXXXXX")
@@ -97,6 +94,9 @@ function y
 	end
 	rm -f -- "$tmp"
 end
+
+# editor
+export EDITOR=nvim
 
 # nvims
 #function neovims
@@ -114,5 +114,5 @@ end
 #end
 
 # zoxide
-zoxide init fish | source
+zoxide init --cmd cd fish | source
 
