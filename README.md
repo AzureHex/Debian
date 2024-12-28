@@ -34,7 +34,7 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin 
 
 ```sh
 # Homebrew Formulae
-brew install autin bat binutils btop cbonsai curl duf eza fastfetch fd ffmpeg fish freetype fzf gcc glances gh glow imagemagick jq lazydocker lazygit lazynpm lsd mailsy neovim node nushell poppler pulseaudio ripgrep sevenzip speedtest-cli starship syncthing tmux tree-sitter tty-clock unbound unzip webp yazi zoxide zsh
+brew install autin bat binutils btop cbonsai curl duf eza fastfetch fd ffmpeg fish freetype fzf gcc glances gh glow imagemagick jq lazydocker lazygit lazynpm lsd mailsy neovim node nushell poppler pulseaudio ripgrep sevenzip speedtest-cli starship syncthing tmux tree-sitter tty-clock unbound unzip vim webp yazi zoxide zsh
 
 # Create directories
 mkdir -p ~/downloads ~/docker/filebrowser ~/.zsh ~/.local/share/tldr
@@ -47,11 +47,19 @@ git clone https://gitee.com/DreamMaoMao/searchjump.yazi.git ~/.config/yazi/plugi
 ```
 
 ```sh
-# Install fisher | fish plugins manager
-curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
+# Install tgpt
+curl -sSL https://raw.githubusercontent.com/aandrew-me/tgpt/main/install | bash -s /usr/local/bin
 ```
+
+---
 
 ```sh
-fisher install PatrickF1/fzf.fish
+fisher install \
+  jorgebucaran/fisher \
+  patrickf1/fzf.fish \
+  catppuccin/fish \
+  gazorby/fish-abbreviation-tips \
+  nickeb96/puffer-fish \
+  jorgebucaran/autopair.fish \
+  dracula/fish
 ```
-
