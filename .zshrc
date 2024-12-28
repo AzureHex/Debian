@@ -64,12 +64,13 @@ fcd() {
   dir=$(find . -type d 2> /dev/null | fzf +m) && cd "$dir"
 }
 
---multi"# Export
+# Export
 export FZF_DEFAULT_OPTS=" \
 --color=bg+:-1,gutter:-1,spinner:#f4dbd6,hl:#ed8796 \
 --color=fg:#cad3f5,header:#ed8796,info:#c6a0f6,pointer:#f4dbd6 \
 --color=marker:#b7bdf8,fg+:#cad3f5,prompt:#c6a0f6,hl+:#ed8796 \
 --color=selected-bg:#494d64 \
+--multi"
 
 # Export
 export BAT_THEME="Catppuccin Macchiato" # base16-256, Dracula
