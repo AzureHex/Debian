@@ -8,11 +8,15 @@ ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 [ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 source "${ZINIT_HOME}/zinit.zsh"
 
+# zsh themes
+source ~/.local/share/zinit/plugins/catppuccin---zsh-syntax-highlighting/themes/catppuccin_macchiato-zsh-syntax-highlighting.zsh
+
 # plugins
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
+zinit light catppuccin/zsh-syntax-highlighting
 
 # snippets
 zinit snippet OMZP::sudo
@@ -47,7 +51,7 @@ setopt hist_verify
 # Completion styling
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' menu no
-zstyle ':fzf-tab:complete:z:*' fzf-preview 'eza -a -1 --show-symlinks --git-ignore --icons --color=always $realpath'
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -a -1 --show-symlinks --git-ignore --icons --color=always $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'eza -a -1 --show-symlinks --git-ignore --icons --color=always $realpath'
 
 # shell integrations
@@ -60,18 +64,25 @@ fcd() {
   dir=$(find . -type d 2> /dev/null | fzf +m) && cd "$dir"
 }
 
+--multi"# Export
+export FZF_DEFAULT_OPTS=" \
+--color=bg+:-1,gutter:-1,spinner:#f4dbd6,hl:#ed8796 \
+--color=fg:#cad3f5,header:#ed8796,info:#c6a0f6,pointer:#f4dbd6 \
+--color=marker:#b7bdf8,fg+:#cad3f5,prompt:#c6a0f6,hl+:#ed8796 \
+--color=selected-bg:#494d64 \
+
 # Export
-export BAT_THEME="Dracula"
+export BAT_THEME="Catppuccin Macchiato" # base16-256, Dracula
 export EDITOR=nvim
 
 # Starship
-eval "$(starship init zsh)"
-export STARSHIP_CONFIG=~/.config/starship/starship.toml
+# eval "$(starship init zsh)"
+# export STARSHIP_CONFIG=~/.config/starship/starship.toml
 
 # Ohmyposh
-#if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
-#  eval "$(oh-my-posh init zsh --config ~/.config/ohmyposh/p10k.toml)"
-#fi
+if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
+ eval "$(oh-my-posh init zsh --config ~/.config/ohmyposh/p10k.toml)"
+fi
 
 # I-beam cursor
 echo -ne "\e[5 q"
@@ -132,3 +143,4 @@ alias unimatrix='~/.local/bin/unimatrix'
 alias rain="unimatrix -n -c yellow -s 90 -l 'o'"
 alias doom='~/.local/bin/doom'
 alias weather='curl "wttr.in/Agartala?F"'
+
