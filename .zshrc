@@ -56,6 +56,7 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'eza -a -1 --show-symlinks -
 
 # shell integrations
 eval "$(fzf --zsh)"
+eval "$(atuin init zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 
 # fzf integrations
