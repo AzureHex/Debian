@@ -1,9 +1,16 @@
+fish_config theme choose "Catppuccin Macchiato" # Catppuccin Macchiato, Dracula Official
+
 # XDG Directories
 set -xg XDG_CONFIG_HOME $HOME/.config
 set -xg XDG_CACHE_HOME $HOME/.cache
 set -xg XDG_DATA_HOME $HOME/.local/share
 set -xg XDG_STATE_HOME $HOME/.local/state
 set -xg XDG_BIN_HOME $HOME/.local/bin
+
+# Fisher
+if not type -q fisher
+    curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source 
+end
 
 #oh-my-posh init fish --config ~/.config/ohmyposh/p10k.toml | source
 
@@ -24,12 +31,15 @@ function backup --argument filename
 end
 
 # bat
-set -gx BAT_THEME "base16-256" # base16-256, Dracula
+set -gx BAT_THEME "Catppuccin Macchiato" # base16-256, Dracula
 
 # curl
 fish_add_path /opt/homebrew/opt/curl/bin
   set -gx LDFLAGS "-L/opt/homebrew/opt/curl/lib"
   set -gx CPPFLAGS "-I/opt/homebrew/opt/curl/include"
+
+# fish
+set -g theme_nerd_fonts yes
 
 # aliasis
 alias la='eza -a --icons'
