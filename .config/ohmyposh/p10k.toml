@@ -18,8 +18,8 @@ final_space = true
   newline = true
 
   [[blocks.segments]]
-    template = '󰀵 '  # Folder icon alone
-    foreground = 'white'  # Set the folder icon color to white
+    template = ' '
+    foreground = 'white'
     background = 'transparent'
     type = 'text'
     style = 'plain'
