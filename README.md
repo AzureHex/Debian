@@ -34,7 +34,7 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin 
 
 ```sh
 # Homebrew Formulae
-brew install autin bat binutils btop cbonsai curl duf eza fastfetch fd ffmpeg fish freetype fzf gcc glances gh glow imagemagick jq lazydocker lazygit lazynpm lsd mailsy neovim node nushell poppler pulseaudio ripgrep sevenzip speedtest-cli starship syncthing tmux tree-sitter tty-clock unbound unzip vim webp yazi zoxide zsh
+brew install autin bat binutils btop cbonsai curl duf eza fastfetch fd ffmpeg fish fontconfig freetype fzf gcc gh glances glow gnupg grep imagemagick jq lazydocker lazygit lazynpm lsd lua mailsy neovim node nushell oh-my-posh poppler pulseaudio ripgrep ruby sevenzip speedtest-cli starship syncthing tldr tmux tree-sitter tty-clock unbound unzip utf8proc vim webp yazi zoxide zsh
 
 # Create directories
 mkdir -p ~/downloads ~/docker/filebrowser ~/.zsh ~/.local/share/tldr
