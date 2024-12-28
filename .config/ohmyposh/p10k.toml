@@ -19,7 +19,7 @@ final_space = true
 
   [[blocks.segments]]
     template = ' '
-    foreground = 'white'
+    foreground = 'red'
     background = 'transparent'
     type = 'text'
     style = 'plain'
